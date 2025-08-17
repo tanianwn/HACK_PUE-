@@ -110,7 +110,7 @@ class _ChatAlgebraPageState extends State<ChatAlgebraPage>
     final typing = _Msg.typing(key: typingId);
     _insertMessage(typing);
 
-    // Llamamos a tu API
+    // Llamamos a API
     final respuesta = await obtenerRespuesta(text);
 
     // Quitamos "escribiendo..."
@@ -146,10 +146,10 @@ class _ChatAlgebraPageState extends State<ChatAlgebraPage>
 
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
-      // respuesta correcta desde Flask
+      //respuesta correcta desde Flask
       return data['respuesta'] ?? "No obtuve respuesta del servidor";
     } else {
-      // en caso de error, devuelves un mensaje
+      //en caso de error, devuelves un mensaje
       throw Exception("Error en el servidor: ${response.statusCode}");
     }
   }
